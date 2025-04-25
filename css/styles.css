@@ -60,6 +60,7 @@ body {
   overflow-y: auto;
   -ms-overflow-style: none;  /* IE 和 Edge */
   scrollbar-width: none;  /* Firefox */
+  padding-bottom: 83px; /* 为底部导航留出空间 */
 }
 
 .app-content::-webkit-scrollbar {
@@ -71,7 +72,7 @@ body {
   height: 83px;
   width: 100%;
   background-color: white;
-  position: absolute;
+  position: fixed; /* 改为fixed而不是absolute */
   bottom: 0;
   left: 0;
   display: flex;
@@ -427,4 +428,93 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+}
+
+/* 标签页容器 */
+.tab-container {
+  margin-bottom: 16px;
+}
+
+.tab-header {
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 8px;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-item.active {
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+.tab-item.active:after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background-color: var(--secondary-color);
+  border-radius: 1px;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+/* 渐变背景和卡片样式增强 */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  color: white;
+}
+
+.card-hover {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 页面过渡动画 */
+.page-transition {
+  transition: opacity 0.3s ease-in-out;
+}
+
+.page-enter {
+  opacity: 0;
+}
+
+.page-enter-active {
+  opacity: 1;
 } 
