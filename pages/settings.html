@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>设置 - 政务系统App</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .settings-section {
+        background-color: white;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 16px;
+      }
+
+      .setting-item {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        border-bottom: 1px solid #f5f5f5;
+      }
+
+      .setting-item:last-child {
+        border-bottom: none;
+      }
+
+      .setting-title {
+        flex: 1;
+        font-size: 16px;
+        color: var(--text-primary);
+      }
+
+      .setting-desc {
+        font-size: 12px;
+        color: var(--text-secondary);
+        margin-top: 4px;
+      }
+
+      .setting-icon {
+        color: var(--gray-dark);
+        margin-right: 16px;
+        font-size: 18px;
+        width: 20px;
+        text-align: center;
+      }
+
+      .setting-value {
+        font-size: 14px;
+        color: var(--gray-dark);
+        margin-right: 8px;
+      }
+
+      .section-title {
+        padding: 16px 16px 8px;
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 0;
+      }
+
+      .cache-size {
+        font-size: 14px;
+        color: var(--gray-dark);
+        margin-right: 8px;
+      }
+
+      .back-button {
+        font-size: 20px;
+        color: var(--text-primary);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <span class="status-bar-time">12:30</span>
+      <div class="status-bar-icons">
+        <i class="fas fa-signal"></i>
+        <i class="fas fa-wifi"></i>
+        <i class="fas fa-battery-three-quarters"></i>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <!-- 标题栏 -->
+      <div class="flex items-center p-4">
+        <a href="profile.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="text-xl font-medium mx-auto">设置</h1>
+        <div style="width: 20px"></div>
+        <!-- 平衡布局 -->
+      </div>
+
+      <!-- 账号安全设置 -->
+      <h2 class="section-title">账号安全</h2>
+      <div class="settings-section">
+        <div class="setting-item">
+          <i class="fas fa-user-shield setting-icon"></i>
+          <div class="setting-title">账号与安全</div>
+          <i class="fas fa-chevron-right text-gray-light"></i>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-fingerprint setting-icon"></i>
+          <div>
+            <div class="setting-title">生物识别</div>
+            <div class="setting-desc">使用指纹或面容识别快速登录</div>
+          </div>
+          <div class="switch">
+            <input type="checkbox" id="biometric-switch" checked />
+            <span class="slider"></span>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-lock setting-icon"></i>
+          <div class="setting-title">密码修改</div>
+          <i class="fas fa-chevron-right text-gray-light"></i>
+        </div>
+      </div>
+
+      <!-- 通知设置 -->
+      <h2 class="section-title">通知设置</h2>
+      <div class="settings-section">
+        <div class="setting-item">
+          <i class="fas fa-bell setting-icon"></i>
+          <div>
+            <div class="setting-title">消息通知</div>
+            <div class="setting-desc">开启后将收到业务进度和政策更新通知</div>
+          </div>
+          <div class="switch">
+            <input type="checkbox" id="notification-switch" checked />
+            <span class="slider"></span>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-bullhorn setting-icon"></i>
+          <div class="setting-title">通知方式设置</div>
+          <i class="fas fa-chevron-right text-gray-light"></i>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-volume-up setting-icon"></i>
+          <div>
+            <div class="setting-title">声音提醒</div>
+            <div class="setting-desc">有新消息时播放提示音</div>
+          </div>
+          <div class="switch">
+            <input type="checkbox" id="sound-switch" checked />
+            <span class="slider"></span>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-mobile-alt setting-icon"></i>
+          <div>
+            <div class="setting-title">震动提醒</div>
+            <div class="setting-desc">有新消息时手机震动</div>
+          </div>
+          <div class="switch">
+            <input type="checkbox" id="vibration-switch" />
+            <span class="slider"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 隐私设置 -->
+      <h2 class="section-title">隐私设置</h2>
+      <div class="settings-section">
+        <div class="setting-item">
+          <i class="fas fa-shield-alt setting-icon"></i>
+          <div class="setting-title">隐私政策</div>
+          <i class="fas fa-chevron-right text-gray-light"></i>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-user-secret setting-icon"></i>
+          <div>
+            <div class="setting-title">隐私保护</div>
+            <div class="setting-desc">控制个人信息共享范围</div>
+          </div>
+          <i class="fas fa-chevron-right text-gray-light"></i>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-map-marker-alt setting-icon"></i>
+          <div>
+            <div class="setting-title">位置服务</div>
+            <div class="setting-desc">允许使用位置信息获取就近服务</div>
+          </div>
+          <div class="switch">
+            <input type="checkbox" id="location-switch" checked />
+            <span class="slider"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 通用设置 -->
+      <h2 class="section-title">通用设置</h2>
+      <div class="settings-section">
+        <div class="setting-item">
+          <i class="fas fa-language setting-icon"></i>
+          <div class="setting-title">语言设置</div>
+          <div class="flex items-center">
+            <span class="setting-value">简体中文</span>
+            <i class="fas fa-chevron-right text-gray-light"></i>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-font setting-icon"></i>
+          <div class="setting-title">字体大小</div>
+          <div class="flex items-center">
+            <span class="setting-value">标准</span>
+            <i class="fas fa-chevron-right text-gray-light"></i>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-broom setting-icon"></i>
+          <div class="setting-title">清除缓存</div>
+          <div class="flex items-center">
+            <span class="cache-size">56.7MB</span>
+            <i class="fas fa-chevron-right text-gray-light"></i>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-download setting-icon"></i>
+          <div>
+            <div class="setting-title">自动更新</div>
+            <div class="setting-desc">仅WiFi环境下自动更新应用</div>
+          </div>
+          <div class="switch">
+            <input type="checkbox" id="auto-update-switch" checked />
+            <span class="slider"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 关于 -->
+      <h2 class="section-title">关于</h2>
+      <div class="settings-section">
+        <div class="setting-item">
+          <i class="fas fa-info-circle setting-icon"></i>
+          <div class="setting-title">关于智慧政务通</div>
+          <div class="flex items-center">
+            <span class="setting-value">v2.0.1</span>
+            <i class="fas fa-chevron-right text-gray-light"></i>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <i class="fas fa-star setting-icon"></i>
+          <div class="setting-title">评价应用</div>
+          <i class="fas fa-chevron-right text-gray-light"></i>
+        </div>
+      </div>
+
+      <!-- 退出登录 -->
+      <div class="p-4">
+        <button
+          class="btn btn-outline w-full"
+          style="color: #b42318; border-color: #b42318"
+        >
+          退出登录
+        </button>
+      </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的办事 - 政务系统App</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .progress-bar {
+        height: 4px;
+        border-radius: 2px;
+        background-color: #e5e7eb;
+        overflow: hidden;
+      }
+
+      .progress-value {
+        height: 100%;
+        background-color: var(--primary-color);
+      }
+
+      .process-step {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .step-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: #e5e7eb;
+        color: #9ca3af;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .step-icon.completed {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .step-icon.current {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+
+      .step-line {
+        width: 2px;
+        height: 24px;
+        background-color: #e5e7eb;
+        margin-left: 11px;
+      }
+
+      .step-line.completed {
+        background-color: var(--primary-color);
+      }
+
+      .category-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+      }
+
+      .badge-count {
+        font-size: 8px;
+        width: 16px;
+        height: 16px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -4px;
+        right: -4px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <span class="status-bar-time">12:30</span>
+      <div class="status-bar-icons">
+        <i class="fas fa-signal"></i>
+        <i class="fas fa-wifi"></i>
+        <i class="fas fa-battery-three-quarters"></i>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <!-- 标题栏 -->
+      <div class="p-4 flex items-center">
+        <h1 class="text-xl font-medium flex-1">我的办事</h1>
+        <div class="relative">
+          <i class="fas fa-bell text-lg text-gray-dark"></i>
+          <span class="badge-count">3</span>
+        </div>
+      </div>
+
+      <!-- 标签页 -->
+      <div class="tab-container">
+        <div class="tab-header">
+          <div class="tab-item active" data-tab="tab1">待办事项</div>
+          <div class="tab-item" data-tab="tab2">办事记录</div>
+          <div class="tab-item" data-tab="tab3">便捷入口</div>
+        </div>
+
+        <!-- 待办事项 -->
+        <div id="tab1" class="tab-content active p-4">
+          <!-- 待办事项列表 -->
+          <div class="card mb-4">
+            <div class="list-item">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #1a4a7a"
+                >
+                  <i class="fas fa-id-card"></i>
+                </div>
+                <div>
+                  <div class="text-base font-medium">居住证办理</div>
+                  <div class="text-xs text-gray-dark mt-1">
+                    需要在2023-06-30前提交材料
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span class="badge badge-warning">待提交</span>
+                <i class="fas fa-chevron-right text-gray-light ml-2"></i>
+              </div>
+            </div>
+
+            <div class="progress-bar mt-3">
+              <div class="progress-value" style="width: 25%"></div>
+            </div>
+
+            <div class="mt-3 text-xs text-gray-dark">
+              <span>已完成 1/4 步</span>
+              <span class="float-right">25%</span>
+            </div>
+
+            <div class="mt-4">
+              <div class="process-step">
+                <div class="step-icon completed">
+                  <i class="fas fa-check"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-medium">申请提交</div>
+                  <div class="text-xs text-gray-dark">2023-05-10 14:30</div>
+                </div>
+              </div>
+              <div class="step-line completed"></div>
+
+              <div class="process-step">
+                <div class="step-icon current">2</div>
+                <div>
+                  <div class="text-sm font-medium">材料上传</div>
+                  <div class="text-xs text-gray-dark">
+                    请上传身份证、户口本等材料
+                  </div>
+                </div>
+              </div>
+              <div class="step-line"></div>
+
+              <div class="process-step">
+                <div class="step-icon">3</div>
+                <div>
+                  <div class="text-sm font-medium">审核</div>
+                  <div class="text-xs text-gray-dark">预计3个工作日</div>
+                </div>
+              </div>
+              <div class="step-line"></div>
+
+              <div class="process-step">
+                <div class="step-icon">4</div>
+                <div>
+                  <div class="text-sm font-medium">领取证件</div>
+                  <div class="text-xs text-gray-dark">可选择快递或现场领取</div>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary w-full mt-4">继续办理</button>
+          </div>
+
+          <div class="card">
+            <div class="list-item">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #3680bf"
+                >
+                  <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div>
+                  <div class="text-base font-medium">社保转入申请</div>
+                  <div class="text-xs text-gray-dark mt-1">
+                    已提交，等待审核
+                  </div>
+                </div>
+              </div>
+              <div>
+                <span class="badge badge-primary">审核中</span>
+                <i class="fas fa-chevron-right text-gray-light ml-2"></i>
+              </div>
+            </div>
+
+            <div class="progress-bar mt-3">
+              <div class="progress-value" style="width: 50%"></div>
+            </div>
+
+            <div class="mt-3 text-xs text-gray-dark">
+              <span>已完成 2/4 步</span>
+              <span class="float-right">50%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 办事记录 -->
+        <div id="tab2" class="tab-content p-4">
+          <div class="card mb-4">
+            <div class="list-item">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #6941c6"
+                >
+                  <i class="fas fa-car"></i>
+                </div>
+                <div>
+                  <div class="text-base font-medium">机动车年检</div>
+                  <div class="text-xs text-gray-dark mt-1">2023-04-15完成</div>
+                </div>
+              </div>
+              <div>
+                <span class="badge badge-success">已完成</span>
+                <i class="fas fa-chevron-right text-gray-light ml-2"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="list-item">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #b54708"
+                >
+                  <i class="fas fa-home"></i>
+                </div>
+                <div>
+                  <div class="text-base font-medium">不动产权证补办</div>
+                  <div class="text-xs text-gray-dark mt-1">2023-03-20完成</div>
+                </div>
+              </div>
+              <div>
+                <span class="badge badge-success">已完成</span>
+                <i class="fas fa-chevron-right text-gray-light ml-2"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="list-item">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #027a48"
+                >
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                  <div class="text-base font-medium">学历证明查询</div>
+                  <div class="text-xs text-gray-dark mt-1">2023-02-10完成</div>
+                </div>
+              </div>
+              <div>
+                <span class="badge badge-success">已完成</span>
+                <i class="fas fa-chevron-right text-gray-light ml-2"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 便捷入口 -->
+        <div id="tab3" class="tab-content p-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="card p-3">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #1a4a7a"
+                >
+                  <i class="fas fa-address-card"></i>
+                </div>
+                <div class="text-base font-medium">个人证照</div>
+              </div>
+              <div class="text-xs text-gray-dark mt-2">
+                身份证、社保卡、户口本等证件管理
+              </div>
+            </div>
+
+            <div class="card p-3">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #3680bf"
+                >
+                  <i class="fas fa-building"></i>
+                </div>
+                <div class="text-base font-medium">房产信息</div>
+              </div>
+              <div class="text-xs text-gray-dark mt-2">
+                房产证明、交易记录查询等
+              </div>
+            </div>
+
+            <div class="card p-3">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #b54708"
+                >
+                  <i class="fas fa-car"></i>
+                </div>
+                <div class="text-base font-medium">车辆信息</div>
+              </div>
+              <div class="text-xs text-gray-dark mt-2">
+                车辆登记、年检预约、违章查询
+              </div>
+            </div>
+
+            <div class="card p-3">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #027a48"
+                >
+                  <i class="fas fa-stethoscope"></i>
+                </div>
+                <div class="text-base font-medium">医疗健康</div>
+              </div>
+              <div class="text-xs text-gray-dark mt-2">
+                电子病历、医保查询、预约挂号
+              </div>
+            </div>
+
+            <div class="card p-3">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #6941c6"
+                >
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="text-base font-medium">教育服务</div>
+              </div>
+              <div class="text-xs text-gray-dark mt-2">
+                学籍查询、入学申请、奖学金办理
+              </div>
+            </div>
+
+            <div class="card p-3">
+              <div class="flex items-center">
+                <div
+                  class="category-icon mr-3"
+                  style="background-color: #c11574"
+                >
+                  <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <div class="text-base font-medium">社保服务</div>
+              </div>
+              <div class="text-xs text-gray-dark mt-2">
+                社保查询、转移接续、养老金计算
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+      <div class="nav-item" data-target="home">
+        <i class="nav-icon fas fa-home"></i>
+        <span class="nav-text">首页</span>
+      </div>
+
+      <div class="nav-item active" data-target="myaffairs">
+        <i class="nav-icon fas fa-clipboard-list"></i>
+        <span class="nav-text">办事</span>
+      </div>
+
+      <div class="nav-item" data-target="news">
+        <i class="nav-icon fas fa-newspaper"></i>
+        <span class="nav-text">资讯</span>
+      </div>
+
+      <div class="nav-item" data-target="consultation">
+        <i class="nav-icon fas fa-headset"></i>
+        <span class="nav-text">咨询</span>
+      </div>
+
+      <div class="nav-item" data-target="profile">
+        <i class="nav-icon fas fa-user"></i>
+        <span class="nav-text">我的</span>
+      </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // 标签页切换
+        const tabItems = document.querySelectorAll('.tab-item')
+        const tabContents = document.querySelectorAll('.tab-content')
+
+        tabItems.forEach((item) => {
+          item.addEventListener('click', function () {
+            const tabId = this.getAttribute('data-tab')
+
+            // 移除所有active类
+            tabItems.forEach((tab) => tab.classList.remove('active'))
+            tabContents.forEach((content) => content.classList.remove('active'))
+
+            // 添加active类到当前标签
+            this.classList.add('active')
+            document.getElementById(tabId).classList.add('active')
+          })
+        })
+      })
+    </script>
+  </body>
+</html>

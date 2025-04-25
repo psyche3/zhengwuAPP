@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>资讯 - 政务系统App</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .news-item {
+        border-bottom: 1px solid #e5e7eb;
+        padding: 16px 0;
+      }
+
+      .news-item:last-child {
+        border-bottom: none;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 10px;
+        font-weight: 500;
+        margin-right: 8px;
+      }
+
+      .tag-policy {
+        background-color: #eff6ff;
+        color: #2563eb;
+      }
+
+      .tag-announcement {
+        background-color: #fef2f2;
+        color: #dc2626;
+      }
+
+      .tag-guide {
+        background-color: #ecfdf5;
+        color: #059669;
+      }
+
+      .share-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6b7280;
+        margin-right: 12px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <span class="status-bar-time">12:30</span>
+      <div class="status-bar-icons">
+        <i class="fas fa-signal"></i>
+        <i class="fas fa-wifi"></i>
+        <i class="fas fa-battery-three-quarters"></i>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <!-- 标题栏和搜索框 -->
+      <div class="p-4">
+        <h1 class="text-xl font-medium mb-3">资讯</h1>
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            placeholder="搜索政策、通知、公告..."
+            class="search-input"
+          />
+        </div>
+      </div>
+
+      <!-- 标签页 -->
+      <div class="tab-container">
+        <div class="tab-header">
+          <div class="tab-item active" data-tab="tab1">全部</div>
+          <div class="tab-item" data-tab="tab2">政策文件</div>
+          <div class="tab-item" data-tab="tab3">通知公告</div>
+          <div class="tab-item" data-tab="tab4">办事指南</div>
+        </div>
+
+        <!-- 全部资讯 -->
+        <div id="tab1" class="tab-content active">
+          <!-- 头条新闻 -->
+          <div class="relative mb-4">
+            <img
+              src="https://via.placeholder.com/400x200"
+              alt="头条新闻"
+              class="w-full h-48 object-cover"
+            />
+            <div
+              class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent"
+            >
+              <span class="tag tag-policy">政策解读</span>
+              <h2 class="text-white text-lg font-medium">
+                《城市公共服务数字化改革方案》解读
+              </h2>
+              <div class="flex items-center text-white text-xs mt-1">
+                <span>发布部门：国家发改委</span>
+                <span class="mx-2">|</span>
+                <span>4小时前</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 新闻列表 -->
+          <div class="card">
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-announcement">通知公告</span>
+                    <span class="text-xs text-gray-dark">2小时前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    关于2023年度公积金缴存基数调整的通知
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    根据国家统计局公布的2022年度城镇非私营单位就业人员平均工资，现对住房公积金缴存基数进行调整...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：住房公积金管理中心</span>
+                <span class="flex-1"></span>
+                <span>阅读量：3.2万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-policy">政策文件</span>
+                    <span class="text-xs text-gray-dark">6小时前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    市政府关于进一步优化营商环境的若干措施
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为深入贯彻落实党中央、国务院关于优化营商环境的决策部署，进一步激发市场主体活力...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市政府办公厅</span>
+                <span class="flex-1"></span>
+                <span>阅读量：2.8万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-guide">办事指南</span>
+                    <span class="text-xs text-gray-dark">1天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    2023年企业社保减免政策及申请指南
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为进一步支持企业发展，减轻企业负担，现将2023年企业社保减免政策及申请流程公布如下...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：人力资源和社会保障局</span>
+                <span class="flex-1"></span>
+                <span>阅读量：4.5万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-announcement">通知公告</span>
+                    <span class="text-xs text-gray-dark">1天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    关于暂停部分区域供水的通知
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    因市政管网维修需要，定于2023年6月15日00:00-12:00期间，对高新区部分区域实施临时停水...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市政水务集团</span>
+                <span class="flex-1"></span>
+                <span>阅读量：1.6万</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 政策文件 -->
+        <div id="tab2" class="tab-content">
+          <div class="card">
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-policy">政策文件</span>
+                    <span class="text-xs text-gray-dark">6小时前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    市政府关于进一步优化营商环境的若干措施
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为深入贯彻落实党中央、国务院关于优化营商环境的决策部署，进一步激发市场主体活力...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市政府办公厅</span>
+                <span class="flex-1"></span>
+                <span>阅读量：2.8万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-policy">政策文件</span>
+                    <span class="text-xs text-gray-dark">2天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    市教育局关于做好2023年义务教育招生入学工作的通知
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为全面贯彻党的教育方针，促进教育公平，规范招生行为，根据国家和省相关政策...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市教育局</span>
+                <span class="flex-1"></span>
+                <span>阅读量：3.5万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-policy">政策文件</span>
+                    <span class="text-xs text-gray-dark">3天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    《关于促进民营经济高质量发展的实施意见》发布
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为深入贯彻落实党中央、国务院关于促进民营经济发展壮大的决策部署，进一步优化营商环境...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市发展和改革委员会</span>
+                <span class="flex-1"></span>
+                <span>阅读量：2.1万</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 通知公告 -->
+        <div id="tab3" class="tab-content">
+          <div class="card">
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-announcement">通知公告</span>
+                    <span class="text-xs text-gray-dark">2小时前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    关于2023年度公积金缴存基数调整的通知
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    根据国家统计局公布的2022年度城镇非私营单位就业人员平均工资，现对住房公积金缴存基数进行调整...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：住房公积金管理中心</span>
+                <span class="flex-1"></span>
+                <span>阅读量：3.2万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-announcement">通知公告</span>
+                    <span class="text-xs text-gray-dark">1天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    关于暂停部分区域供水的通知
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    因市政管网维修需要，定于2023年6月15日00:00-12:00期间，对高新区部分区域实施临时停水...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市政水务集团</span>
+                <span class="flex-1"></span>
+                <span>阅读量：1.6万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-announcement">通知公告</span>
+                    <span class="text-xs text-gray-dark">2天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    关于开展2023年度高层次人才引进计划的通知
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为加快建设创新型城市，集聚高层次创新创业人才，现面向海内外引进一批具有国际水平的战略科技人才...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市人才工作领导小组办公室</span>
+                <span class="flex-1"></span>
+                <span>阅读量：1.9万</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 办事指南 -->
+        <div id="tab4" class="tab-content">
+          <div class="card">
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-guide">办事指南</span>
+                    <span class="text-xs text-gray-dark">1天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    2023年企业社保减免政策及申请指南
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为进一步支持企业发展，减轻企业负担，现将2023年企业社保减免政策及申请流程公布如下...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：人力资源和社会保障局</span>
+                <span class="flex-1"></span>
+                <span>阅读量：4.5万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-guide">办事指南</span>
+                    <span class="text-xs text-gray-dark">3天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    个人所得税专项附加扣除操作指南
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为方便纳税人享受个人所得税专项附加扣除政策，现将相关操作流程及注意事项说明如下...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市税务局</span>
+                <span class="flex-1"></span>
+                <span>阅读量：3.7万</span>
+              </div>
+            </div>
+
+            <div class="news-item">
+              <div class="flex">
+                <div class="flex-1 pr-3">
+                  <div class="flex items-center mb-2">
+                    <span class="tag tag-guide">办事指南</span>
+                    <span class="text-xs text-gray-dark">4天前</span>
+                  </div>
+                  <h3 class="text-base font-medium mb-1">
+                    不动产登记一站式办理服务指南
+                  </h3>
+                  <p class="text-sm text-gray-dark line-clamp-2">
+                    为进一步优化不动产登记服务，提高办事效率，现推出不动产登记"一站式"服务，具体办理指南如下...
+                  </p>
+                </div>
+                <img
+                  src="https://via.placeholder.com/120x80"
+                  alt="新闻图片"
+                  class="w-20 h-20 object-cover rounded"
+                />
+              </div>
+              <div class="flex items-center mt-3 text-xs text-gray-dark">
+                <span>发布部门：市不动产登记中心</span>
+                <span class="flex-1"></span>
+                <span>阅读量：2.9万</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 详情页 -->
+      <div id="newsDetail" class="news-detail hidden p-4">
+        <div class="mb-4">
+          <button id="backToList" class="flex items-center text-gray-dark">
+            <i class="fas fa-arrow-left mr-2"></i>
+            <span>返回列表</span>
+          </button>
+        </div>
+
+        <h1 class="text-xl font-bold mb-3">
+          关于2023年度公积金缴存基数调整的通知
+        </h1>
+
+        <div class="flex items-center text-xs text-gray-dark mb-4">
+          <span>发布部门：住房公积金管理中心</span>
+          <span class="mx-2">|</span>
+          <span>发布时间：2023-06-10 10:30</span>
+        </div>
+
+        <div class="text-sm leading-6 mb-6">
+          <p class="mb-4">
+            根据国家统计局公布的2022年度城镇非私营单位就业人员平均工资，现对住房公积金缴存基数进行调整，具体如下：
+          </p>
+
+          <p class="mb-4">一、缴存基数调整范围</p>
+          <p class="mb-4">
+            缴存基数调整范围为我市行政区域内所有单位及其在职职工。
+          </p>
+
+          <p class="mb-4">二、缴存基数调整时间</p>
+          <p class="mb-4">2023年7月1日起执行新的缴存基数标准。</p>
+
+          <p class="mb-4">三、缴存基数调整标准</p>
+          <p class="mb-4">
+            1. 职工住房公积金缴存基数以职工上一年度月平均工资收入为准。
+          </p>
+          <p class="mb-4">
+            2.
+            职工月平均工资收入低于我市上一年度职工月平均工资60%的，以我市上一年度职工月平均工资的60%作为缴存基数。
+          </p>
+          <p class="mb-4">
+            3.
+            职工月平均工资收入高于我市上一年度职工月平均工资300%的，以我市上一年度职工月平均工资的300%作为缴存基数。
+          </p>
+
+          <p class="mb-4">四、缴存基数调整流程</p>
+          <p class="mb-4">
+            各单位可通过"住房公积金网上业务大厅"或"手机APP"进行缴存基数调整申报，也可到住房公积金管理中心各服务网点办理。
+          </p>
+
+          <p class="mb-4">五、其他事项</p>
+          <p>
+            各单位应当根据本通知要求，按时完成职工住房公积金缴存基数调整工作。如有疑问，请咨询住房公积金服务热线：12329。
+          </p>
+        </div>
+
+        <div class="border-t border-gray-light pt-4">
+          <h3 class="text-base font-medium mb-3">分享到</h3>
+          <div class="flex">
+            <div class="share-icon">
+              <i class="fab fa-weixin"></i>
+            </div>
+            <div class="share-icon">
+              <i class="fab fa-weibo"></i>
+            </div>
+            <div class="share-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="share-icon">
+              <i class="fas fa-share-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+      <div class="nav-item" data-target="home">
+        <i class="nav-icon fas fa-home"></i>
+        <span class="nav-text">首页</span>
+      </div>
+
+      <div class="nav-item" data-target="myaffairs">
+        <i class="nav-icon fas fa-clipboard-list"></i>
+        <span class="nav-text">办事</span>
+      </div>
+
+      <div class="nav-item active" data-target="news">
+        <i class="nav-icon fas fa-newspaper"></i>
+        <span class="nav-text">资讯</span>
+      </div>
+
+      <div class="nav-item" data-target="consultation">
+        <i class="nav-icon fas fa-headset"></i>
+        <span class="nav-text">咨询</span>
+      </div>
+
+      <div class="nav-item" data-target="profile">
+        <i class="nav-icon fas fa-user"></i>
+        <span class="nav-text">我的</span>
+      </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // 标签页切换
+        const tabItems = document.querySelectorAll('.tab-item')
+        const tabContents = document.querySelectorAll('.tab-content')
+
+        tabItems.forEach((item) => {
+          item.addEventListener('click', function () {
+            const tabId = this.getAttribute('data-tab')
+
+            // 移除所有active类
+            tabItems.forEach((tab) => tab.classList.remove('active'))
+            tabContents.forEach((content) => content.classList.remove('active'))
+
+            // 添加active类到当前标签
+            this.classList.add('active')
+            document.getElementById(tabId).classList.add('active')
+          })
+        })
+
+        // 新闻列表项点击事件
+        const newsItems = document.querySelectorAll('.news-item')
+        const newsList = document.querySelector('.app-content')
+        const newsDetail = document.getElementById('newsDetail')
+        const backButton = document.getElementById('backToList')
+
+        newsItems.forEach((item) => {
+          item.addEventListener('click', function () {
+            // 显示详情页，隐藏列表页
+            document.querySelectorAll('.tab-content').forEach((content) => {
+              content.classList.add('hidden')
+            })
+            document.querySelector('.tab-container').classList.add('hidden')
+            newsDetail.classList.remove('hidden')
+          })
+        })
+
+        // 返回按钮点击事件
+        backButton.addEventListener('click', function () {
+          // 显示列表页，隐藏详情页
+          document.querySelector('.tab-container').classList.remove('hidden')
+          document
+            .querySelector('.tab-content.active')
+            .classList.remove('hidden')
+          newsDetail.classList.add('hidden')
+        })
+      })
+    </script>
+  </body>
+</html>

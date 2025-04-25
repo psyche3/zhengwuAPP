@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>政务系统App原型</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .message-toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 12px 20px;
+        background-color: #1677ff;
+        color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        display: none;
+      }
+
+      .message-success {
+        background-color: #52c41a;
+      }
+
+      .message-error {
+        background-color: #ff4d4f;
+      }
+
+      .message-warning {
+        background-color: #faad14;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-white py-4 shadow-sm mb-8">
+      <div class="container mx-auto px-4">
+        <h1 class="text-3xl font-bold text-gray-800">政务系统App原型</h1>
+        <p class="text-gray-600 mt-2">
+          基于HTML、Tailwind CSS和Font Awesome开发的高保真UI原型
+        </p>
+      </div>
+    </header>
+
+    <div class="container mx-auto px-4 pb-12">
+      <div class="screens-container">
+        <!-- 登录页面 -->
+        <div class="screen-item">
+          <h2 class="screen-title">登录页面</h2>
+          <div class="phone-container">
+            <iframe
+              src="pages/login.html"
+              frameborder="0"
+              class="w-full h-full phone-iframe"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- 首页/服务大厅 -->
+        <div class="screen-item">
+          <h2 class="screen-title">首页/服务大厅</h2>
+          <div class="phone-container">
+            <iframe
+              src="pages/home.html"
+              frameborder="0"
+              class="w-full h-full phone-iframe"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- 我的办事 -->
+        <div class="screen-item">
+          <h2 class="screen-title">我的办事</h2>
+          <div class="phone-container">
+            <iframe
+              src="pages/myaffairs.html"
+              frameborder="0"
+              class="w-full h-full phone-iframe"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- 政策资讯 -->
+        <div class="screen-item">
+          <h2 class="screen-title">政策资讯</h2>
+          <div class="phone-container">
+            <iframe
+              src="pages/news.html"
+              frameborder="0"
+              class="w-full h-full phone-iframe"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- 个人中心 -->
+        <div class="screen-item">
+          <h2 class="screen-title">个人中心</h2>
+          <div class="phone-container">
+            <iframe
+              src="pages/profile.html"
+              frameborder="0"
+              class="w-full h-full phone-iframe"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- 在线咨询 -->
+        <div class="screen-item">
+          <h2 class="screen-title">在线咨询</h2>
+          <div class="phone-container">
+            <iframe
+              src="pages/consultation.html"
+              frameborder="0"
+              class="w-full h-full phone-iframe"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- 设置页面 -->
+        <div class="screen-item">
+          <h2 class="screen-title">设置页面</h2>
+          <div class="phone-container">
+            <iframe
+              src="pages/settings.html"
+              frameborder="0"
+              class="w-full h-full phone-iframe"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="bg-gray-100 py-6">
+      <div class="container mx-auto px-4 text-center text-gray-600">
+        <p>政务系统App原型 &copy; 2024</p>
+        <p class="mt-2 text-sm">
+          此原型使用HTML、Tailwind CSS和JavaScript开发，仅作演示用途。
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

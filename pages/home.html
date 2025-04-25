@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>首页 - 政务系统App</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .banner-slide {
+        height: 160px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .banner-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .banner-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 12px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        color: white;
+        font-weight: 500;
+      }
+
+      .indicator {
+        position: absolute;
+        bottom: 8px;
+        right: 12px;
+        display: flex;
+        gap: 4px;
+      }
+
+      .indicator-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .indicator-dot.active {
+        background-color: white;
+      }
+
+      .welcome-card {
+        background: linear-gradient(135deg, #1a4a7a, #3680bf);
+        color: white;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .news-item {
+        display: flex;
+        gap: 12px;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .news-item:last-child {
+        border-bottom: none;
+      }
+
+      .news-image {
+        width: 80px;
+        height: 60px;
+        border-radius: 6px;
+        object-fit: cover;
+        flex-shrink: 0;
+      }
+
+      .notification-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 16px;
+        height: 16px;
+        background-color: #ff4d4f;
+        border-radius: 50%;
+        color: white;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <span class="status-bar-time">12:30</span>
+      <div class="status-bar-icons">
+        <i class="fas fa-signal"></i>
+        <i class="fas fa-wifi"></i>
+        <i class="fas fa-battery-three-quarters"></i>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <div class="p-4">
+        <!-- 搜索栏 -->
+        <div class="search-bar mb-4">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" class="search-input" placeholder="搜索政务服务" />
+        </div>
+
+        <!-- 用户欢迎卡片 -->
+        <div class="welcome-card mb-4">
+          <div class="flex justify-between items-center">
+            <div>
+              <h2 class="text-lg font-medium">你好，张先生</h2>
+              <p class="text-white text-opacity-80 text-sm mt-1">
+                欢迎使用智慧政务通
+              </p>
+            </div>
+            <div class="relative">
+              <div
+                class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center"
+              >
+                <i class="fas fa-user-alt text-xl"></i>
+              </div>
+              <div class="notification-badge">2</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 轮播图 -->
+        <div class="banner-slide mb-5">
+          <img
+            src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVkJTIwc3F1YXJlfGVufDB8fDB8fA%3D%3D&w=800&q=80"
+            alt="政府公告"
+          />
+          <div class="banner-text">
+            <span>2023年社会保障卡申领政策更新</span>
+          </div>
+          <div class="indicator">
+            <div class="indicator-dot active"></div>
+            <div class="indicator-dot"></div>
+            <div class="indicator-dot"></div>
+          </div>
+        </div>
+
+        <!-- 热门服务 -->
+        <div class="card">
+          <h3 class="text-base font-medium mb-2">热门服务</h3>
+          <div class="service-grid">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-id-card"></i>
+              </div>
+              <span class="text-xs">身份证办理</span>
+            </div>
+
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <span class="text-xs">车辆业务</span>
+            </div>
+
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              <span class="text-xs">不动产登记</span>
+            </div>
+
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <span class="text-xs">教育服务</span>
+            </div>
+
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <span class="text-xs">医疗保障</span>
+            </div>
+
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-baby"></i>
+              </div>
+              <span class="text-xs">生育登记</span>
+            </div>
+
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-bus"></i>
+              </div>
+              <span class="text-xs">交通出行</span>
+            </div>
+
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="fas fa-ellipsis-h"></i>
+              </div>
+              <span class="text-xs">更多服务</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 我的待办 -->
+        <div class="card mt-4">
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-base font-medium">我的待办</h3>
+            <a href="myaffairs.html" class="text-secondary-color text-sm"
+              >查看全部</a
+            >
+          </div>
+
+          <div class="list-item">
+            <div>
+              <div class="text-base">居住证办理</div>
+              <div class="text-sm text-gray-dark mt-1">请尽快提交所需材料</div>
+            </div>
+            <span class="badge badge-warning">待提交</span>
+          </div>
+
+          <div class="list-item">
+            <div>
+              <div class="text-base">社保转入申请</div>
+              <div class="text-sm text-gray-dark mt-1">已提交，等待审核</div>
+            </div>
+            <span class="badge badge-primary">审核中</span>
+          </div>
+        </div>
+
+        <!-- 政策资讯 -->
+        <div class="card mt-4">
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-base font-medium">政策资讯</h3>
+            <a href="news.html" class="text-secondary-color text-sm">更多</a>
+          </div>
+
+          <div class="news-item">
+            <img
+              src="https://images.unsplash.com/photo-1541872704-74c6c6f8b4b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2l0eSUyMGdvdmVybm1lbnR8ZW58MHx8MHx8&w=800&q=80"
+              alt="新闻图片"
+              class="news-image"
+            />
+            <div>
+              <div class="text-base line-clamp-2">
+                2023年城市公共交通补贴政策解读
+              </div>
+              <div class="text-xs text-gray-dark mt-1">2023-05-16</div>
+            </div>
+          </div>
+
+          <div class="news-item">
+            <img
+              src="https://images.unsplash.com/photo-1577415124269-fc1140a69e91?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGF4fGVufDB8fDB8fA%3D%3D&w=800&q=80"
+              alt="新闻图片"
+              class="news-image"
+            />
+            <div>
+              <div class="text-base line-clamp-2">
+                小微企业税收优惠政策调整通知
+              </div>
+              <div class="text-xs text-gray-dark mt-1">2023-05-12</div>
+            </div>
+          </div>
+
+          <div class="news-item">
+            <img
+              src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZWR1Y2F0aW9ufGVufDB8fDB8fA%3D%3D&w=800&q=80"
+              alt="新闻图片"
+              class="news-image"
+            />
+            <div>
+              <div class="text-base line-clamp-2">
+                2023学年义务教育阶段入学政策发布
+              </div>
+              <div class="text-xs text-gray-dark mt-1">2023-05-10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+      <div class="nav-item active" data-target="home">
+        <i class="nav-icon fas fa-home"></i>
+        <span class="nav-text">首页</span>
+      </div>
+
+      <div class="nav-item" data-target="myaffairs">
+        <i class="nav-icon fas fa-clipboard-list"></i>
+        <span class="nav-text">办事</span>
+      </div>
+
+      <div class="nav-item" data-target="news">
+        <i class="nav-icon fas fa-newspaper"></i>
+        <span class="nav-text">资讯</span>
+      </div>
+
+      <div class="nav-item" data-target="consultation">
+        <i class="nav-icon fas fa-headset"></i>
+        <span class="nav-text">咨询</span>
+      </div>
+
+      <div class="nav-item" data-target="profile">
+        <i class="nav-icon fas fa-user"></i>
+        <span class="nav-text">我的</span>
+      </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>

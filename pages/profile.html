@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人中心 - 政务系统App</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      .profile-header {
+        background: linear-gradient(135deg, #1a4a7a, #3680bf);
+        color: white;
+        padding: 20px;
+        border-radius: 0 0 16px 16px;
+        margin-bottom: 16px;
+      }
+
+      .avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: var(--primary-color);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .user-level {
+        display: inline-block;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 2px 8px;
+        font-size: 12px;
+        margin-left: 8px;
+      }
+
+      .cert-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+      }
+
+      .cert-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+        font-size: 20px;
+      }
+
+      .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        background-color: white;
+        border-bottom: 1px solid #f5f5f5;
+      }
+
+      .menu-item:last-child {
+        border-bottom: none;
+      }
+
+      .menu-icon {
+        width: 40px;
+        height: 40px;
+        background-color: #f0f7ff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-color);
+        margin-right: 12px;
+        font-size: 20px;
+      }
+
+      .menu-title {
+        flex: 1;
+        font-size: 16px;
+        color: var(--text-primary);
+      }
+
+      .notification-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #ff4d4f;
+        margin-right: 4px;
+      }
+
+      .menu-arrow {
+        color: var(--gray-dark);
+        font-size: 14px;
+      }
+
+      /* 不同菜单项的图标颜色 */
+      .menu-icon.purple {
+        background-color: #f5f0ff;
+        color: #6941c6;
+      }
+
+      .menu-icon.green {
+        background-color: #ecfdf5;
+        color: #027a48;
+      }
+
+      .menu-icon.orange {
+        background-color: #fffaeb;
+        color: #b54708;
+      }
+
+      .menu-icon.red {
+        background-color: #fef2f2;
+        color: #b42318;
+      }
+
+      .version-info {
+        text-align: center;
+        padding: 20px 0;
+        color: var(--gray-dark);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <span class="status-bar-time">12:30</span>
+      <div class="status-bar-icons">
+        <i class="fas fa-signal"></i>
+        <i class="fas fa-wifi"></i>
+        <i class="fas fa-battery-three-quarters"></i>
+      </div>
+    </div>
+
+    <div class="app-content">
+      <!-- 个人信息头部 -->
+      <div class="profile-header">
+        <div class="flex items-center mb-4">
+          <div class="avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="ml-4 flex-1">
+            <div class="flex items-center">
+              <div class="text-lg font-medium">张先生</div>
+              <div class="user-level">实名用户</div>
+            </div>
+            <div class="text-sm text-white text-opacity-80 mt-1">
+              手机号：138****5678
+            </div>
+          </div>
+          <div>
+            <a href="settings.html" class="text-white">
+              <i class="fas fa-cog text-xl"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- 证照钱包 -->
+        <div class="flex justify-around mt-6">
+          <div class="cert-item">
+            <div class="cert-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="text-xs">身份证</div>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="text-xs">社保卡</div>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="text-xs">学位证</div>
+          </div>
+
+          <div class="cert-item">
+            <div class="cert-icon">
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+            <div class="text-xs">更多</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 我的服务 -->
+      <div class="card mb-4">
+        <h3 class="text-base font-medium px-4 pt-2 pb-3">我的服务</h3>
+
+        <div class="grid grid-cols-4 text-center pb-2">
+          <div class="service-item">
+            <div class="service-icon mx-auto">
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="text-xs">我的收藏</span>
+          </div>
+
+          <div class="service-item">
+            <div class="service-icon mx-auto">
+              <i class="fas fa-history"></i>
+            </div>
+            <span class="text-xs">浏览历史</span>
+          </div>
+
+          <div class="service-item">
+            <div class="service-icon mx-auto">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <span class="text-xs">我的材料</span>
+          </div>
+
+          <div class="service-item">
+            <div class="service-icon mx-auto">
+              <i class="fas fa-bell"></i>
+            </div>
+            <span class="text-xs">消息通知</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 菜单列表 -->
+      <div class="card mb-4">
+        <div class="menu-item">
+          <div class="menu-icon">
+            <i class="fas fa-address-card"></i>
+          </div>
+          <span class="menu-title">实名认证</span>
+          <span class="text-xs text-success-color mr-2">已认证</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-icon purple">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <span class="menu-title">我的钱包</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-icon green">
+            <i class="fas fa-file-signature"></i>
+          </div>
+          <span class="menu-title">我的申报</span>
+          <div class="flex items-center mr-2">
+            <div class="notification-dot"></div>
+            <span class="text-xs text-gray-dark">2条待处理</span>
+          </div>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-icon orange">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <span class="menu-title">我的预约</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="menu-item">
+          <div class="menu-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <span class="menu-title">我的咨询</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-icon purple">
+            <i class="fas fa-thumbs-up"></i>
+          </div>
+          <span class="menu-title">我的评价</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-icon green">
+            <i class="fas fa-headset"></i>
+          </div>
+          <span class="menu-title">客服中心</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="menu-item">
+          <div class="menu-icon">
+            <i class="fas fa-question-circle"></i>
+          </div>
+          <span class="menu-title">帮助中心</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-icon">
+            <i class="fas fa-info-circle"></i>
+          </div>
+          <span class="menu-title">关于我们</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-icon red">
+            <i class="fas fa-sign-out-alt"></i>
+          </div>
+          <span class="menu-title">退出登录</span>
+          <i class="fas fa-chevron-right menu-arrow"></i>
+        </div>
+      </div>
+
+      <div class="version-info">
+        <p>智慧政务通 v2.0.1</p>
+        <p class="mt-1">© 2023 智慧政务部门 版权所有</p>
+      </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="bottom-nav">
+      <div class="nav-item" data-target="home">
+        <i class="nav-icon fas fa-home"></i>
+        <span class="nav-text">首页</span>
+      </div>
+
+      <div class="nav-item" data-target="myaffairs">
+        <i class="nav-icon fas fa-clipboard-list"></i>
+        <span class="nav-text">办事</span>
+      </div>
+
+      <div class="nav-item" data-target="news">
+        <i class="nav-icon fas fa-newspaper"></i>
+        <span class="nav-text">资讯</span>
+      </div>
+
+      <div class="nav-item" data-target="consultation">
+        <i class="nav-icon fas fa-headset"></i>
+        <span class="nav-text">咨询</span>
+      </div>
+
+      <div class="nav-item active" data-target="profile">
+        <i class="nav-icon fas fa-user"></i>
+        <span class="nav-text">我的</span>
+      </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+  </body>
+</html>
